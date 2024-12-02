@@ -258,12 +258,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (backToQuestion3) {
+    /*if (backToQuestion3) {
         backToQuestion3.addEventListener("click", () => {
             question4.classList.add("hidden");
             question3.classList.remove("hidden");
         });
-    }
+    }*/
 
     // Validate ownership selection
     function validateOwnershipSelection() {
@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Address validation
-    function validateAddressInput() {
+    /*function validateAddressInput() {
         if (addressInput && addressInput.value.trim() === "") {
             addressError.classList.remove("hidden");
             return false;
@@ -310,7 +310,33 @@ document.addEventListener("DOMContentLoaded", () => {
             addressError.classList.add("hidden");
             return true;
         }
+    }*/
+
+     // Address validation logic
+    function validateAddressInput() {
+        const addressPattern = /^\d+\s[A-z]+\s[A-z]+.*$/; // Basic pattern for street number + name
+
+        if (addressInput && addressInput.value.trim() === "") {
+            addressError.textContent = "Address cannot be empty.";
+            addressError.classList.remove("hidden");
+            return false;
+        } else if (addressInput && !addressPattern.test(addressInput.value.trim())) {
+            addressError.textContent = "Please enter a valid address (e.g., '123 Main Street').";
+            addressError.classList.remove("hidden");
+            return false;
+        } else {
+            addressError.classList.add("hidden");
+            return true;
+        }
     }
+
+    if (backToQuestion3) {
+        backToQuestion3.addEventListener("click", () => {
+            question4.classList.add("hidden");
+            question3.classList.remove("hidden");
+            });
+        }
+    //});
 
     // Add and Remove Selected Renovation Options
     optionButtons.forEach((button) => {
