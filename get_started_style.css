@@ -1,0 +1,216 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.navbar .logo {
+  height: 50px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.cta {
+  background: #f4a261;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+
+.left-section form label {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.left-section input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Highlighted link */
+.highlighted {
+    font-weight: bold;
+    color: #0077b6; /* Blue color for emphasis */
+    text-decoration: underline;
+}
+
+/* Renovation options buttons */
+.option-btn {
+    margin: 5px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-size: 14px;
+}
+
+.option-btn:hover {
+    background-color: #0077b6;
+    color: #fff;
+}
+
+.selected-options ul {
+    list-style: none;
+    padding: 0;
+}
+
+.selected-options li {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.selected-options li button {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+.hidden {
+    display: none;
+}
+
+/* Cost and Total Styling */
+.totals {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.totals p {
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+main {
+    padding: 40px;
+}
+
+.planner-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.left-section {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.left-section h2 {
+    margin-bottom: 10px;
+}
+
+.left-section form label {
+    display: block;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+.top-right-links {
+    flex: 1;
+    padding-left: 20px;
+}
+
+.top-right-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.top-right-links li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #495057;
+}
+
+.completed-icon {
+    font-size: 16px;
+    color: green;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.next-button {
+    background-color: #0077b6;
+    color: white;
+}
+
+.prev-button {
+    background-color: #adb5bd;
+    color: black;
+}
+/* Highlight Location Link */
+.highlighted {
+    font-weight: bold;
+    color: #0077b6; /* Blue color for emphasis */
+    text-decoration: underline;
+}

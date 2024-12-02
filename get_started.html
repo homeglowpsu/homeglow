@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Renovation Planner</title>
+    <link rel="stylesheet" href="get_started_style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="index.html"><img src="images/homeglow_logo.png" alt="Logo" class="logo"></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#design-studio">Design Studio</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="get_started.html">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="get_started.html" class="cta">Start Your Renovation</a>
+  </header>
+    <main>
+        <section class="planner">
+            <div class="planner-container">
+                             <!-- Question 1 -->
+                <div class="left-section" id="question1">
+                    <h2>Let’s get started!</h2>
+                    <p>Do you own this property?</p>
+                    <form>
+                        <label>
+                            <input type="radio" name="property" value="yes" />
+                            Yes, I own this property
+                        </label><br />
+                        <label>
+                            <input type="radio" name="property" value="close" />
+                            I'm about to close and have access to the property to do a site survey
+                        </label><br />
+                        <label>
+                            <input type="radio" name="property" value="no" />
+                            No, I don't currently own this property
+                        </label>
+                    </form>
+                    <button class="next-button" id="toQuestion2">Next</button>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="left-section hidden" id="question2">
+                    <h2>What type of property are you renovating?</h2>
+                    <form>
+                        <label>
+                            <input type="radio" name="propertyType" value="singleFamily" />
+                            Single family home
+                        </label><br />
+                        <label>
+                            <input type="radio" name="propertyType" value="condo" />
+                            Condo or Co-op
+                        </label>
+                    </form>
+                    <button class="prev-button" id="backToQuestion1">Previous</button>
+                    <button class="next-button" id="toQuestion3">Next</button>
+                </div>
+
+               <!-- Question 3 -->
+                <div class="left-section hidden" id="question3">
+                    <h2>Where are you renovating?</h2>
+                    <p>We'll use this information to match you with contractors in your area.</p>
+                    <form id="addressForm">
+                        <label for="address">Full Address:</label><br />
+                        <input type="text" id="address" name="address" placeholder="Enter full address" required />
+                        <div class="error-message hidden" id="addressError">Address is required!</div>
+                    </form>
+                    <button class="prev-button" id="backToQuestion2">Previous</button>
+                    <button class="next-button" id="toQuestion4">Next</button>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="left-section hidden" id="question4">
+                    <h2>What do you want to renovate?</h2>
+                    <p>
+                        Every contractor specializes in different areas, and the size and complexity of your renovation project 
+                        are key factors in finding the perfect match.
+                    </p>
+                    <div class="renovation-options">
+                        <button class="option-btn" data-option="Bathroom" data-cost="35000">Bathroom</button>
+                        <button class="option-btn" data-option="Kitchen" data-cost="80000">Kitchen</button>
+                        <button class="option-btn" data-option="Room Addition" data-cost="125000">Room Addition</button>
+                        <button class="option-btn" data-option="Attic" data-cost="32500">Attic</button>
+                        <button class="option-btn" data-option="Basement" data-cost="120000">Basement</button>
+                        <button class="option-btn" data-option="Bedroom" data-cost="155000">Bedroom</button>
+                        <button class="option-btn" data-option="Deck" data-cost="27500">Deck</button>
+                        <button class="option-btn" data-option="Foyer" data-cost="15000">Foyer</button>
+                        <button class="option-btn" data-option="Garage" data-cost="27500">Garage</button>
+                        <button class="option-btn" data-option="House Exterior" data-cost="65000">House Exterior</button>
+                        <button class="option-btn" data-option="Laundry" data-cost="17500">Laundry</button>
+                        <button class="option-btn" data-option="Living Space" data-cost="100000">Living Space</button>
+                        <button class="option-btn" data-option="Roofing" data-cost="37500">Roofing</button>
+                        <button class="option-btn" data-option="Yard" data-cost="12500">Yard</button>
+                        <button class="option-btn" data-option="Something Else" data-cost="0">Something Else</button>
+                    </div>
+                    <div class="selected-options">
+                        <h3>Selected Renovations:</h3>
+                        <ul id="selectedOptions"></ul>
+                    </div>
+                    <div class="totals">
+                        <p><strong>Grand Total for Customer:</strong> <span id="grandTotal">0</span> USD</p>
+                        <p><strong>5% HomeGlow's Profit:</strong> <span id="profit">0</span> USD</p>
+                    </div>
+                    <button class="prev-button" id="backToQuestion3">Previous</button>
+                </div>
+
+                <!-- Right Side -->
+                <div class="top-right-links">
+                    <ul>
+                        <li>Location <span class="completed-icon">✔</span></li>
+                        <li>Spaces <span class="completed-icon">✔</span></li>
+                        <li>Preferences <span class="completed-icon">✔</span></li>
+                        <li>Budget <span class="completed-icon">✔</span></li>
+                        <li>Details <span class="completed-icon">✔</span></li>
+                        <li>Photos <span class="completed-icon">✔</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <center><p>&copy; 2024 Home Renovation Planner. All rights reserved.</p></center>
+    </footer>
+    <script src="get_started_script.js"></script>
+</body>
+</html>
