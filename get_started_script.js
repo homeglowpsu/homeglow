@@ -181,92 +181,153 @@ document.addEventListener("DOMContentLoaded", () => {
 // script.js
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Define elements
     const question1 = document.getElementById("question1");
     const question2 = document.getElementById("question2");
     const question3 = document.getElementById("question3");
     const question4 = document.getElementById("question4");
 
     const toQuestion2 = document.getElementById("toQuestion2");
-    const toQuestion3 = document.getElementById("toQuestion3");
-    const toQuestion4 = document.getElementById("toQuestion4");
-
     const backToQuestion1 = document.getElementById("backToQuestion1");
+    const toQuestion3 = document.getElementById("toQuestion3");
     const backToQuestion2 = document.getElementById("backToQuestion2");
+    const toQuestion4 = document.getElementById("toQuestion4");
     const backToQuestion3 = document.getElementById("backToQuestion3");
 
     const addressInput = document.getElementById("address");
     const addressError = document.getElementById("addressError");
 
-    const selectedOptions = document.getElementById("selectedOptions");
+    const ownershipRadios = document.getElementsByName("ownership");
+    const ownershipError = document.getElementById("ownershipError");
+
+    const propertyTypeRadios = document.getElementsByName("propertyType");
+    const propertyTypeError = document.getElementById("propertyTypeError");
+
     const optionButtons = document.querySelectorAll(".option-btn");
-
-    const locationLink = document.getElementById("locationLink");
-
+    const selectedOptions = document.getElementById("selectedOptions");
     const grandTotalElement = document.getElementById("grandTotal");
     const profitElement = document.getElementById("profit");
 
     let totalCost = 0;
 
-    // Function to show and hide questions
-    function navigateToQuestion(current, next) {
-        current.classList.add("hidden");
-        next.classList.remove("hidden");
+    // Highlight Location link
+    const locationLink = document.getElementById("locationLink");
+    if (locationLink) {
+        locationLink.classList.add("highlighted");
     }
 
-    // Navigation events
+    // Navigation logic
     if (toQuestion2) {
-        toQuestion2.addEventListener("click", () => navigateToQuestion(question1, question2));
+        toQuestion2.addEventListener("click", () => {
+            if (validateOwnershipSelection()) {
+                question1.classList.add("hidden");
+                question2.classList.remove("hidden");
+            }
+        });
     }
 
     if (backToQuestion1) {
-        backToQuestion1.addEventListener("click", () => navigateToQuestion(question2, question1));
+        backToQuestion1.addEventListener("click", () => {
+            question2.classList.add("hidden");
+            question1.classList.remove("hidden");
+        });
     }
 
     if (toQuestion3) {
-        toQuestion3.addEventListener("click", () => navigateToQuestion(question2, question3));
+        toQuestion3.addEventListener("click", () => {
+            if (validatePropertyTypeSelection()) {
+                question2.classList.add("hidden");
+                question3.classList.remove("hidden");
+            }
+        });
     }
 
     if (backToQuestion2) {
-        backToQuestion2.addEventListener("click", () => navigateToQuestion(question3, question2));
+        backToQuestion2.addEventListener("click", () => {
+            question3.classList.add("hidden");
+            question2.classList.remove("hidden");
+        });
     }
 
     if (toQuestion4) {
         toQuestion4.addEventListener("click", () => {
-            if (addressInput.value.trim() === "") {
-                addressError.classList.remove("hidden");
-            } else {
-                addressError.classList.add("hidden");
-                navigateToQuestion(question3, question4);
+            if (validateAddressInput()) {
+                question3.classList.add("hidden");
+                question4.classList.remove("hidden");
             }
         });
     }
 
     if (backToQuestion3) {
-        backToQuestion3.addEventListener("click", () => navigateToQuestion(question4, question3));
+        backToQuestion3.addEventListener("click", () => {
+            question4.classList.add("hidden");
+            question3.classList.remove("hidden");
+        });
     }
 
-    // Highlight location link
-    if (locationLink) {
-        locationLink.classList.add("highlighted");
+    // Validate ownership selection
+    function validateOwnershipSelection() {
+        let isSelected = false;
+        ownershipRadios.forEach((radio) => {
+            if (radio.checked) {
+                isSelected = true;
+            }
+        });
+
+        if (!isSelected) {
+            ownershipError.classList.remove("hidden");
+        } else {
+            ownershipError.classList.add("hidden");
+        }
+
+        return isSelected;
     }
 
-    // Add and remove selected renovation options
+    // Validate property type selection
+    function validatePropertyTypeSelection() {
+        let isSelected = false;
+        propertyTypeRadios.forEach((radio) => {
+            if (radio.checked) {
+                isSelected = true;
+            }
+        });
+
+        if (!isSelected) {
+            propertyTypeError.classList.remove("hidden");
+        } else {
+            propertyTypeError.classList.add("hidden");
+        }
+
+        return isSelected;
+    }
+
+    // Address validation
+    function validateAddressInput() {
+        if (addressInput && addressInput.value.trim() === "") {
+            addressError.classList.remove("hidden");
+            return false;
+        } else {
+            addressError.classList.add("hidden");
+            return true;
+        }
+    }
+
+    // Add and Remove Selected Renovation Options
     optionButtons.forEach((button) => {
         button.addEventListener("click", () => {
             const option = button.dataset.option;
             const cost = parseInt(button.dataset.cost);
 
-            // Check if the option already exists
+            // Check if option is already added
             const existingOption = Array.from(selectedOptions.children).find(
                 (li) => li.textContent.includes(option)
             );
 
             if (!existingOption) {
-                // Add the option to the list
                 const li = document.createElement("li");
                 li.textContent = `${option} - ${cost.toLocaleString()} USD`;
 
-                // Create the remove button
+                // Remove button
                 const removeBtn = document.createElement("button");
                 removeBtn.textContent = "X";
                 removeBtn.style.marginLeft = "10px";
@@ -279,18 +340,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 li.appendChild(removeBtn);
                 selectedOptions.appendChild(li);
 
-                // Update the total cost
+                // Add to total cost
                 totalCost += cost;
                 updateTotals();
             }
         });
     });
 
-    // Update the total and profit
+    // Update Total and Profit
     function updateTotals() {
         grandTotalElement.textContent = totalCost.toLocaleString();
         const profit = (totalCost * 0.05).toFixed(2);
         profitElement.textContent = profit.toLocaleString();
     }
 });
+
+
 

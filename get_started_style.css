@@ -127,6 +127,17 @@ body {
     font-weight: bold;
 }
 
+.hidden {
+    display: none;
+}
+
+
+#propertyTypeError {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
 main {
     padding: 40px;
 }

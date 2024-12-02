@@ -28,7 +28,7 @@
                     <h2>Let’s get started!</h2>
                     <p>Do you own this property?</p>
                     <form>
-                        <label>
+                        <!--<label>
                             <input type="radio" name="property" value="yes" />
                             Yes, I own this property
                         </label><br />
@@ -38,13 +38,27 @@
                         </label><br />
                         <label>
                             <input type="radio" name="property" value="no" />
-                            No, I don't currently own this property
+                            No, I don't currently own this property -->
+
+                            <div id="ownershipError" class="hidden" style="color: red;">Please select an option.</div>
+                            <div>
+                                <label>
+                                    <input type="radio" name="ownership" value="yes" id="ownProperty" /> Yes, I own this property
+                                </label>
+                                <label>
+                                    <input type="radio" name="ownership" value="aboutToClose" id="aboutToClose" /> I'm about to close and have access to the property
+                                </label>
+                                <label>
+                                    <input type="radio" name="ownership" value="no" id="doNotOwn" /> No, I don't currently own this property
+                                </label>    
+                            </div>
                         </label>
                     </form>
                     <button class="next-button" id="toQuestion2">Next</button>
                 </div>
 
                 <!-- Question 2 -->
+                <!--
                 <div class="left-section hidden" id="question2">
                     <h2>What type of property are you renovating?</h2>
                     <form>
@@ -59,8 +73,23 @@
                     </form>
                     <button class="prev-button" id="backToQuestion1">Previous</button>
                     <button class="next-button" id="toQuestion3">Next</button>
-                </div>
+                </div> -->
 
+                <!-- Question2 : What type of property are you renovating? -->
+                <div id="question2" class="hidden">
+                    <h2>What type of property are you renovating?</h2>
+                    <div>
+                        <input type="radio" name="propertyType" value="Single family home" id="singleFamily" />
+                        <label for="singleFamily">Single family home</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="propertyType" value="Condo or Co-op" id="condoCoop" />
+                        <label for="condoCoop">Condo or Co-op</label>
+                    </div>
+                    <div id="propertyTypeError" class="hidden" style="color: red;">Please select a property type.</div>
+                    <button id="toQuestion3">Next</button>
+                </div>
+                
                <!-- Question 3 -->
                 <div class="left-section hidden" id="question3">
                     <h2>Where are you renovating?</h2>
