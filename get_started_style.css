@@ -177,6 +177,21 @@ main {
     cursor: pointer;
 }
 
+/* Style for the right section (image) */
+.right-section {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;  /* Optional: for rounded corners */
+}
+
 .hidden {
     display: none;
 }
